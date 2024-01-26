@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x o</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+        body{
+            max-width: 750px !important;
+            height: 100vh;
+            background-color: black;
+            color: aliceblue;
+        }
+        .game{
+          width: 540px;
+        }
+        .head{
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            padding: 6px 10px;
+        }
+        .square{
+            width: 150px;
+            height: 150px;
+            float: left;
+            margin: 10px;
+            background-color: blue;
+            font-size: 90px;
+            display: flex;
+            justify-content: center;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .square:hover{
+            background-color: black;
+        }
+        .reload{
+        }
+    </style>
+</head>
+<body class="conteiner w-100 bg-success">
+    <div class="container game">
+        <div class=" head bg-primary" id="title">
+            <span> XO new .</span>GAME...
+        </div>
+        <div id="item1" class="square" onclick="game(this.id)"></div>
+        <div id="item2" class="square" onclick="game(this.id)"></div>
+        <div id="item3" class="square" onclick="game(this.id)"></div>
+
+        <div id="item4" class="square" onclick="game(this.id)"></div>
+        <div id="item5" class="square" onclick="game(this.id)"></div>
+        <div id="item6" class="square" onclick="game(this.id)"></div>
+
+        <div id="item7" class="square" onclick="game(this.id)"></div>
+        <div id="item8" class="square" onclick="game(this.id)"></div>
+        <div id="item9" class="square" onclick="game(this.id)"></div>
+        <center> <button id="reload" class="btn btn-outline-danger reload" onclick="new_game()" style="font-weight: 500; 2 position: fixed; bottom: 10%; left: 42%;">NEW GAME</button></center>
+    </div>
+    <script>
+       let turn = 'x';
+      let sqrs = [];
+      function winner(){
+      for(i=1 ; i<10 ; i++){
+        sqrs[i] = document.getElementById("item"+i);
+      }
+      if(sqrs[1].innerHTML == sqrs[2].innerHTML && sqrs[2].innerHTML == sqrs[3].innerHTML && sqrs[3].innerHTML == "x" ){
+        title.innerHTML = "X  iss winner";
+        title.style.color = "green";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        setTimeout(function(){title.innerHTML += "."} , 2500)
+        sqrs[1].style.background = "black";
+        sqrs[2].style.background = "black";
+        sqrs[3].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }else if(sqrs[1].innerHTML == sqrs[5].innerHTML && sqrs[5].innerHTML == sqrs[9].innerHTML && sqrs[9].innerHTML == "x" ){
+        title.innerHTML = "X  iss winner";
+        title.style.color = "green";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        setTimeout(function(){title.innerHTML += "."} , 2500)
+        sqrs[1].style.background = "black";
+        sqrs[5].style.background = "black";
+        sqrs[9].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }else if(sqrs[3].innerHTML == sqrs[5].innerHTML && sqrs[5].innerHTML == sqrs[7].innerHTML && sqrs[7].innerHTML == "x" ){
+        title.innerHTML = "X  iss winner3";
+        title.style.color = "green";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        setTimeout(function(){title.innerHTML += "."} , 2500)
+        sqrs[3].style.background = "black";
+        sqrs[5].style.background = "black";
+        sqrs[7].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }else if(sqrs[4].innerHTML == sqrs[5].innerHTML && sqrs[5].innerHTML == sqrs[6].innerHTML && sqrs[6].innerHTML == "x" ){
+        title.innerHTML = "X  iss winner";
+        title.style.color = "green";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        setTimeout(function(){title.innerHTML += "."} , 2500)
+        sqrs[4].style.background = "black";
+        sqrs[5].style.background = "black";
+        sqrs[6].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }else if(sqrs[7].innerHTML == sqrs[8].innerHTML && sqrs[8].innerHTML == sqrs[9].innerHTML && sqrs[9].innerHTML == "x" ){
+        title.innerHTML = "X  iss winner";
+        title.style.color = "green";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 1500)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        sqrs[7].style.background = "black";
+        sqrs[8].style.background = "black";
+        sqrs[9].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }else if(sqrs[1].innerHTML == sqrs[4].innerHTML && sqrs[4].innerHTML == sqrs[7].innerHTML && sqrs[7].innerHTML == "x" ){
+        title.innerHTML = "X  iss winner";
+        title.style.color = "green";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 1500)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        sqrs[1].style.background = "black";
+        sqrs[4].style.background = "black";
+        sqrs[7].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }else if(sqrs[2].innerHTML == sqrs[5].innerHTML && sqrs[5].innerHTML == sqrs[8].innerHTML && sqrs[8].innerHTML == "x" ){
+        title.innerHTML = "X  iss winner";
+        title.style.color = "green";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 1500)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        sqrs[1].style.background = "black";
+        sqrs[2].style.background = "black";
+        sqrs[3].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }else if(sqrs[3].innerHTML == sqrs[6].innerHTML && sqrs[6].innerHTML == sqrs[9].innerHTML && sqrs[9].innerHTML == "x" ){
+        title.innerHTML = "X  iss winner";
+        title.style.color = "green";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 1500)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        sqrs[3].style.background = "black";
+        sqrs[6].style.background = "black";
+        sqrs[9].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }
+
+      if(sqrs[1].innerHTML == sqrs[2].innerHTML && sqrs[2].innerHTML == sqrs[3].innerHTML && sqrs[3].innerHTML == "o" ){
+        title.innerHTML = "o  iss winner";
+        title.style.color = "black";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 1500)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        sqrs[1].style.background = "black";
+        sqrs[2].style.background = "black";
+        sqrs[3].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }else if(sqrs[1].innerHTML == sqrs[5].innerHTML && sqrs[5].innerHTML == sqrs[9].innerHTML && sqrs[9].innerHTML == "o" ){
+        title.innerHTML = "o  iss winner";
+        title.style.color = "black";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 1500)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        sqrs[1].style.background = "black";
+        sqrs[5].style.background = "black";
+        sqrs[9].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }else if(sqrs[3].innerHTML == sqrs[5].innerHTML && sqrs[5].innerHTML == sqrs[7].innerHTML && sqrs[7].innerHTML == "o" ){
+        title.innerHTML = "o  iss winner3";
+        title.style.color = "black";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 1500)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        sqrs[3].style.background = "black";
+        sqrs[5].style.background = "black";
+        sqrs[7].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }else if(sqrs[4].innerHTML == sqrs[5].innerHTML && sqrs[5].innerHTML == sqrs[6].innerHTML && sqrs[6].innerHTML == "o" ){
+        title.innerHTML = "o  iss winner";
+        title.style.color = "black";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 1500)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        sqrs[4].style.background = "black";
+        sqrs[5].style.background = "black";
+        sqrs[6].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }else if(sqrs[7].innerHTML == sqrs[8].innerHTML && sqrs[8].innerHTML == sqrs[9].innerHTML && sqrs[9].innerHTML == "o" ){
+        title.innerHTML = "o  iss winner";
+        title.style.color = "black";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 1500)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        sqrs[7].style.background = "black";
+        sqrs[8].style.background = "black";
+        sqrs[9].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }else if(sqrs[1].innerHTML == sqrs[4].innerHTML && sqrs[4].innerHTML == sqrs[7].innerHTML && sqrs[7].innerHTML == "o" ){
+        title.innerHTML = "o  iss winner";
+        title.style.color = "black";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 1500)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        sqrs[1].style.background = "black";
+        sqrs[4].style.background = "black";
+        sqrs[7].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }else if(sqrs[2].innerHTML == sqrs[5].innerHTML && sqrs[5].innerHTML == sqrs[8].innerHTML && sqrs[8].innerHTML == "o" ){
+        title.innerHTML = "o  iss winner";
+        title.style.color = "black";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 1500)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        sqrs[2].style.background = "black";
+        sqrs[5].style.background = "black";
+        sqrs[8].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }else if(sqrs[3].innerHTML == sqrs[6].innerHTML && sqrs[6].innerHTML == sqrs[9].innerHTML && sqrs[9].innerHTML == "o" ){
+        title.innerHTML = "o  iss winner";
+        title.style.color = "black";
+        title.style.fontSize = "25px";
+        title.style.fontWeight = "700";
+        setTimeout(function(){title.innerHTML += "."} , 1000)
+        setTimeout(function(){title.innerHTML += "."} , 1500)
+        setTimeout(function(){title.innerHTML += "."} , 2000)
+        sqrs[3].style.background = "black";
+        sqrs[6].style.background = "black";
+        sqrs[9].style.background = "black";
+        setTimeout(function(){location.reload();}, 3000);
+      }
+    }
+       function new_game(){
+        window.location.reload();
+       }
+
+        function game(id){
+           let element = document.getElementById(id);
+           if(turn == 'x' && element.innerHTML === ''){
+            element.innerHTML = "x";
+            turn = "o";
+            title.innerHTML = "the O turn";
+           }
+           else if(turn === "o"&& element.innerHTML === ''){
+            element.innerHTML = "o";
+            turn = "x"
+            title.innerHTML = "the X turn"
+           }
+           winner();
+        }
+    </script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/cdnjs.cloudflare.com_ajax_libs_popper.js_1.11.0_umd_popper.min.js"></script>
+    <script src="js/code.jquery.com_jquery-3.7.0.min.js"></script>
+
+</body>
+</html>
